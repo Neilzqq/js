@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
+    <!-- <link rel="stylesheet" href="../Glider.js-master/glider.min.css"> -->
+    <!-- jQuery -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <script src="../Glider.js-master/glider.min.js"></script> -->
+    <script src="../OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <style>
+        .owl-item.active:first-child {
+            transform: scale(2);
+        }
+
+        .item img:hover {
+            transform: scale(1.25);
+            transition-duration: .5s;
+        }
+
+        body{
+            background-image: url(./27500526_817779231757811_7061775747462168087_o.jpg)
+        }
+
+        .owl-carousel .owl-item img{
+            width: 50%;
+        }
+
+        p{
+            font-size: 50px;
+            opacity: 0;
+            transition-duration: 3s;
+            margin-top: 200px;
+            margin-left: 650px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <input type="text" id="url" placeholder="請輸入LINE官方貼圖" value="" style="width: 250px;">
+    <button id="btn_request">取得LINE官方貼圖</button>
+    <ul id="myList"></ul>
+    
+
+    <div class="owl-carousel owl-theme">
+        <div class="item">
+        </div>
+    </div>
+
+    <p>沒錯 我就是白爛 嘿嘿</p>
+
+
+
+    <!-- <div class="glider-contain">
+        <div class="glider">
+        </div>
+
+        <button aria-label="Previous" class="glider-prev">«</button>
+        <button aria-label="Next" class="glider-next">»</button>
+        <div role="tablist" class="dots"></div>
+    </div> -->
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <audio data-id="1"></audio>
+    <script>
+        // $(document).ready(function () {
+
+        // });
+        var arr = [{
+
+            "animationUrl": "",
+            "id": "411576798",
+            "popupUrl": "",
+            "soundUrl": "",
+
+        }, {
+
+            "animationUrl": "",
+            "id": "411576798",
+            "popupUrl": "",
+            "soundUrl": "",
+
+        }, {
+
+            "animationUrl": "",
+            "id": "411576798",
+            "popupUrl": "",
+            "soundUrl": "",
+
+        }];
+
+        $('#next').on('click', function () {
+            arr[2]
+            $('audio').attr('src', 'aaaa.mp3')
+        })
+
+        $('#next').on('click', function () {
+            $('audio').attr('src', 'aaaa.mp3')
+        })
+        //取得json字串
+        document.querySelector('button#btn_request').addEventListener('click', function (event) {
+            let url = document.querySelector('input#url').value;
+            $('p').css('opacity','1');
+
+            //如果url為空 則不往下執行
+            if (url === '') {
+                alert(`請輸入line 官方貼圖`);
+                return false;
+            }
+
+
+            $.get('http://darreninfo.cc:5003/linesticker', { url: url }, function (obj) {
+                let ul = document.querySelector('ul#myList');
+
+                //回傳成功 則顯示貼圖在網頁上
+                if (obj['success']) {
+                    let carousleImg = '';
+                    for (let p of obj['results']) {
+                        carousleImg += `
+                            <div class="item">
+                                <img src="${p['staticUrl']}">
+                            </div>`
+                    }
+
+                    console.log(carousleImg);
+                    $(".owl-carousel").html(carousleImg);
+                    // new Glider(document.querySelector('.glider'), {
+                    //     slidesToShow: 5,
+                    //     slidesToScroll: 1,
+                    //     draggable: true,
+                    //     dots: '.dots',
+                    //     arrows: {
+                    //         prev: '.glider-prev',
+                    //         next: '.glider-next'
+                    //     }
+                    // });
+                    $(".owl-carousel").owlCarousel({
+                        items: 4,
+                        loop: true,
+                        margin: 10,
+                        autoplay: true,
+                        autoplayTimeout: 2000,
+                        autoplayHoverPause: true
+                        
+                    });
+
+                    // //將obj['results']裡面的結果 放置到li裡面
+                    // for (let o of obj['results']) {
+                    //     //新增li元素 放置img a等元素
+                    //     let li = document.createElement('li');
+
+                    //     //新增img元素 並指定src的值為貼圖連結
+                    //     let img = document.createElement('img');
+                    //     img.src = o['staticUrl']; //<img src='http:....>
+                    //     img.style = 'width: 200px';
+
+                    //     //新增a元素 並指定href 為貼圖連結 同時指定 target='_blank'
+                    //     //_blank就是開新視窗的意思 新分頁
+                    //     let a = document.createElement('a');
+                    //     a.href = o['staticUrl'];
+                    //     a.target = '_blank';
+
+                    //     //新增放到a元素中的內文 innertext
+                    //     let textNode = document.createTextNode(o['id']);
+                    //     a.appendChild(textNode); //<a href='' target='_blank'>409563134</a>
+
+                    //     //將img與a分別放到li當中
+                    //     li.appendChild(img);
+                    //     li.appendChild(a);
+
+                    //     //將li放到ul當中
+                    //     ul.appendChild(li);
+                    // }
+                } else {
+                    // alert('資料傳遞失敗: ');
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

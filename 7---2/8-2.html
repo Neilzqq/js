@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //初始化陣列
+        let listOfName = ['alex','bill','cook','neil'];
+
+        //設定(新增)元素
+        listOfName[4] = 'Ellen'; //指定索引位置 來新增元素
+        console.log(listOfName);
+        //使用arr.push()將資料加入陣列尾端
+        listOfName.push('fox');
+        listOfName.push('gina');
+        console.log(listOfName);
+        //輸出 [ 0 1 2 3 4 5 6 ]
+
+        //修改元素
+        listOfName[0] = 'allen';
+        listOfName[2] = 'carl';
+        console.log(listOfName[0]); //輸出allen
+        console.log(listOfName[2]); //輸出carl
+        console.log(listOfName);
+        //更改陣列裡面的內容 並且全部輸出出來
+        //javas....mdn push
+
+        //刪除尾端元素 利用pop將尾端元素刪除
+        listOfName.pop();
+        console.log(listOfName);
+        //輸出listOfName = [ 0 1 2 3 4 5]
+
+        listOfName.pop();
+        console.log(listOfName);
+        //輸出listOfName = [0 1 2 3 4]
+
+        //刪除尾端元素 並取出放置在新的變數中
+        let name = listOfName.pop();
+        console.log(name); //Ellen
+        //[0 1 2 3]
+        console.log(listOfName);
+
+        //刪除陣列第一個元素 使用.shift
+        listOfName.shift();
+        console.log(listOfName);
+        //輸出[1 2 3]
+
+        //有時候從尾端刪除的陣列資料 需要放在前端 使用.shift
+        name = listOfName.pop(); //從尾端刪除darren
+        listOfName.unshift(name); //從尾端刪除資料 並放在前端第一筆
+        console.log(listOfName);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

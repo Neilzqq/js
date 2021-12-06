@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //建立隨機數
+        console.log(Math.random());
+        console.log(Math.random());
+        console.log(Math.random());
+        console.log(Math.random());
+
+        //隨機選擇歌曲
+        let arrSong = ['一路向北','回到過去','不能說的秘密','給我一首歌的時間','可愛女人'];
+        let idxRandom = Math.floor(Math.random() * 5);
+        
+        document.write(`我可以選擇的歌曲 <br>`);
+        for(let i = 0;i < arrSong.length;i++){
+            document.write('@' + arrSong[i] + '<br>');
+        }
+
+        document.write(`我今天想聽: ${arrSong[idxRandom]}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

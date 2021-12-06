@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //i 到 4的時候 跳出迴圈
+        for(i = 1; i <= 9; i++){
+            if(i == 4){
+                break;
+            }
+            console.log(`i = ${i}`);
+        }
+
+        /**
+         * j為4的時候會自動斷開
+         * 斷開後會回到外部迴圈變2開始跑
+         * 又到4時斷開回到外部變3
+         * 直到j跑到4為止就停止了
+         * 斷開只有內部斷開
+         */
+        for(i = 1; i <= 9; i++){
+            for(j = 1; j <= 9; j++){
+                if(j == 4){
+                    break;
+                }
+                console.log(`i = ${i}, j =${j}`);
+            }
+
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let count = 0;
+        while (count <= 9) {
+            //count遞增到5的時候 跳出迴圈
+            if(count == 5){
+                break;
+            
+            }
+            console.log(`count = ${count}`);
+            count++; //千萬記得要遞增 不然會變成無窮迴圈
+            
+        }
+
+
+        // i 為 5的時候略過  直接往下一個 i 繼續執行 6
+        for (let i = 0; i <= 9; i++) {
+            if(i == 5){
+                //continue 直接跳過 並且回到i++又開始跑迴圈
+                continue;
+            }
+            console.log(`i = ${i}`);
+            
+        }
+
+        // break是直接斷開 並結束 contiuna 是跳過並重下一個開始跑
+
+        count = 0;
+        while (count < 9) {
+            count++;
+            if(count == 5){
+                continue;
+            }
+            console.log(`count = ${count}`);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

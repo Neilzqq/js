@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="p123">
+        <p class="myClass">偷走0</p>
+        <p class="myClass">希望你回來1</p>
+        <p class="myClass">行星戀2</p>
+    </div>
+
+    <div class="p456">
+        <div class="box">
+
+        </div>
+    </div>
+
+    <script>
+        var p = document.querySelectorAll('p');
+
+        //可以使用類似陣列的操作方式 提供索引值來存取
+        p[0].style.backgroundColor = '#ff0000';
+        p[1].innerHTML = '<span style="color:#00ff00">希望你回來...</span>';
+        p[1].style.backgroundColor = 'blue';
+        p[2].style.lineHeight = '24px';
+        p[2].style.color = 'red';
+        p[2].style.backgroundColor = '#0000ff';
+    </script>
+</body>
+
+</html>

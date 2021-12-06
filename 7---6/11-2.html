@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //宣告Date 物件
+        let date = new Date();
+        let year,month,day,hour,minute,second;
+
+        //目標:2021-07-06 09:21:00
+
+        //2021 西元年
+        year = date.getFullYear();
+
+        //月份09 7月的時候執行 會出現6 比正常值少1 記得都+
+        
+            if((date.getMonth() + 1) < 10){
+                month = '0' + (date.getMonth() + 1);
+            } else{
+                month = (date.getMonth() + 1);
+            }
+        //日 06
+            if(date.getDate < 10){
+                month = '0' + date.getDate();
+            } else{
+                minute = date.getDate();
+            }
+
+        // 時
+            if(date.getHours < 10){
+                month = '0' + date.getHours();
+            } else{
+                minute = date.getHours();
+            }
+
+        //分
+        if(date.getMinutes < 10){
+                month = '0' + date.getMinutes();
+            } else{
+                minute = date.getMinutes();
+            }
+        
+        //秒
+        if( date.getSeconds() < 10) {
+        second = '0' + date.getSeconds();
+        } else {
+        second = date.getSeconds();
+        };
+
+        console.log(`${year}-${month}-${day} ${hour}:${minute}:${second}`);
+
+        //CONSTRUCT 3 GAME MAKING
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

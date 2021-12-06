@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .thumb {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="myForm" method="POST" action="" enctype="multipart/form-data">
+        <!-- 選擇上傳檔案的元素 -->
+        <h3>請選擇上傳檔案的元素</h3>
+        <input type="file" name="fileUpload[]" id="files" multiple>
+    </form>
+
+    <!-- 模擬點擊上傳檔案的元素 -->
+    <a href="#" id="selectFiles">選擇檔案</a>
+
+    <!-- 水平線 -->
+    <hr>
+    <!-- 放多張照片的容器 -->
+    <ul id="myList"></ul>
+
+    <script>
+        //監聽多選檔案的事件
+        document.querySelector('input#files').addEventListener('change', handleFileSelect);
+
+        //處理選擇檔案的預覽事件(函式)
+        function handleFileSelect(evt) {
+            let files = evt.target.files;
+
+            for (let file of files) {
+                //僅處理 image /jpg /png /格式的檔案
+                if (!file.type.match('^image')) {
+                    continue;
+                }
+
+                //建立filereader 物件
+                let reader = new FileReader();
+
+                //以data url 的格式來圖取圖檔
+                reader.readAsDataURL(file);
+
+                //.onload 代表 以讀取完成的事件 處理機制
+                reader.onload = function (event) {
+                    let myList = document.querySelector('ul#myList');
+
+                    //建立li元素 準備做為ul當中的元素
+                    let li = document.createElement('li');
+
+                    li.innerHTML = `<img class="thumb" src="${event.target.result}"`;
+
+                    //將li放進mylist
+                    myList.appendChild(li);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

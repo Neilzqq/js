@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //輸出json 內容
+        let str = `{
+        "firstName": "Darren",
+        "lastName": "Yang",
+        "gender": "male",
+        "age": 18,
+        "address": {
+            "streetAddress": "台北市復興南路一段390號2樓、3樓",
+            "city": "Taipei"
+        },
+        "phoneNumber": [
+            {
+                "type": "office",
+                "number": "6631-6666"
+            },
+            {
+                "type": "fax",
+                "number": "6631-6598"
+            }
+        ]
+    }`;
+
+    //將json轉成物件
+    let obj = JSON.parse(str);
+
+    //讀取obj物件屬性 firstname
+    console.log(obj['firstName']);
+
+    //讀取obj物件屬性address裡面的物件屬性 streetAddress
+    console.log(obj['address']['streetAddress']);
+    console.log(obj['address']['city']);
+
+    //使用for迴圈 指定index來取得arr當中的值
+    //直接選取他的key 就可以印出他的值
+    for(let i = 0;i < obj['phoneNumber'].length;i++){
+        console.log(obj['phoneNumber'][i]['type']);
+        console.log(obj['phoneNumber'][i]['number']);
+    }
+
+    //將obj 物件屬性phoneNumber 當中的陣列資料(裡面是物件)逐一列出
+    for(let o  of obj['phoneNumber']){
+        console.log(o['type']);
+        console.log(o['number']);
+    }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p style="color:#7878ff;line-height: 3;font-size: 30px;">good luck<br>have fun</p>
+
+    <script>
+        //取得style css屬性值
+        let p = document.querySelector('p');
+        document.write('<br>');
+        document.write(p.style.color + '<br>');
+        document.write(p.style.lineHeight + '<br>');
+        document.write(p.style.fontSize + '<br>');
+
+        //設定p的color為#ff0000
+        p.style.color = "#ff0000";
+        p.style['font-size'] = '80px'; //屬性是可以使用css格式
+        p.style['backgroundColor'] = '#CFEE99'; //屬性是可以使用js格式
+
+    </script>
+</body>
+
+</html>

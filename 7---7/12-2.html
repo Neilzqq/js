@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="visit()"></button>
+
+
+
+
+    <script>
+        function visit() {
+            if (confirm('你確定要前往line官網嗎')) {
+                //使用window.location.href可以要求瀏覽器到指定頁面
+                //location類似a標籤的意思
+                window.location.href = 'https://store.line.me/stickershop/home/general/zh-Hant'
+            }
+        }
+    </script>
+</body>
+
+</html>

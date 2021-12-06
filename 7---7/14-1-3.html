@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="myList">
+        <li>item 01</li>
+        <li>item 02</li>
+        <li>item 03</li>
+    </ul>
+
+    <script>
+        //取得容器
+        let myList = document.querySelector('ul#myList');
+
+        //取得 <li>item 02 </li>元素
+        let refNode = document.querySelector('li')[1];
+
+        //建立 li 元素節點
+        let newNode = document.createElement('li');
+
+        //建立 textNode 文字節點
+        let textNode = document.createTextNode('hi guy');
+
+        //把textNode 放到li裡面
+        newNode.appendChild(textNode);
+
+        //將新節點 newNode 插入在refNode 的前方
+        myList.insertBefore(newNode, refNode);
+    </script>
+</body>
+
+</html>
